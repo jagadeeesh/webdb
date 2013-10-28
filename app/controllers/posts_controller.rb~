@@ -6,6 +6,7 @@ end
 def create
 @post=Post.new(post_params)
 if @post.save
+flash[:success]="your data successfuly stored"
 redirect_to :back
 else
 render :new
