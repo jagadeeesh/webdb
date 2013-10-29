@@ -11,13 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131025102403) do
+ActiveRecord::Schema.define(version: 20131028100039) do
 
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "remember_token"
+  end
+
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

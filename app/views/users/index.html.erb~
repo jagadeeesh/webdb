@@ -1,0 +1,16 @@
+<% provide(:title, ' user') %>
+<h2>Hello <%=@user.name%></h2>
+ <% @post.each do |p| %>
+<h2> <%=p.title%>
+<%= link_to "show", post_path(p) %>
+
+</h2>
+
+<% end %>
+</br>
+<ul class="nav pull-middle">
+          <li><%= link_to "store new", store_path%></li>
+<ul/>          
+
+
+
