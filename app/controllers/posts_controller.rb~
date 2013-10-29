@@ -19,6 +19,14 @@ def key
   render json: post
 end
 
+def id
+  str=params[:id]
+  fields=str.split('.')
+  post = Post.where(id: fields[0])
+  title=post.id
+  render json: title
+end
+
 def create
   @post = current_user.posts.build(post_params)
   if @post.save

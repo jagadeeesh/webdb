@@ -8,8 +8,9 @@ match '/signin' , to: 'sessions#new' , via: 'get'
  match '/signout', to: 'sessions#destroy', via: 'delete'
 match '/signup', to: 'users#new',    via: 'get'
 match '/store', to: 'posts#new',    via: 'get'
-#match '/posts/key', to: 'posts#key',    via: 'get'
-get '/posts/key' => 'posts#key'
+match '/key', to: 'posts#key',    via: 'get'
+match '/id', to: 'posts#id',    via: 'get'
+#get '/posts/key' => 'posts#key'
 
 
 =begin
