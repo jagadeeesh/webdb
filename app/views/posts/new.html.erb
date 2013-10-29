@@ -11,9 +11,10 @@
 
       <%= f.label :content %>
       <%= f.text_area :content %><br>
-      
-
+      <%= f.hidden_field :key, :value => @key %>
+              
       <%= f.submit "store data", class: "btn btn-large btn-primary" %>
+      
     <% end %>
   </div>
 </div>

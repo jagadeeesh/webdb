@@ -1,14 +1,22 @@
 class PostsController < ApplicationController
 include SessionsHelper
+before_action :signed_in_user, only: [:show, :new ]
+#before_action :signed_in_user, except: [:key] 
 #respond_to :json
 
 def new
   @post=Post.new
+  @key= SecureRandom.hex(16)
 end
 
 def show
   @post = Post.find(params[:id])
   #respond_with(@post)
+end
+
+def key
+  post = Post.where(key: params[:key]).first
+  render json: post
 end
 
 def create
@@ -23,6 +31,6 @@ end
 
 private
 def post_params
-  params.require(:post).permit(:title, :content)
+  params.require(:post).permit(:title, :content, :key)
 end
 end

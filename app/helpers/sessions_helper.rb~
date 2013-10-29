@@ -21,4 +21,14 @@ module SessionsHelper
     self.current_user = nil
     cookies.delete(:remember_token)
     end
+     def signed_in_user
+     unless signed_in?
+     #store_location
+     redirect_to root_url, notice: "Please sign in."
+    end
+    end
+    
+    #def create_unique_id
+     # key = SecureRandom.hex(5)
+    #end
 end

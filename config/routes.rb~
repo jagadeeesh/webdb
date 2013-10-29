@@ -8,6 +8,23 @@ match '/signin' , to: 'sessions#new' , via: 'get'
  match '/signout', to: 'sessions#destroy', via: 'delete'
 match '/signup', to: 'users#new',    via: 'get'
 match '/store', to: 'posts#new',    via: 'get'
+#match '/posts/key', to: 'posts#key',    via: 'get'
+get '/posts/key' => 'posts#key'
+
+
+=begin
+devise_for :users, :controllers => {
+  :users => "re"
+}
+
+devise_scope :user do
+  root to: "users#show" # This is the root path of the user when you are logged in
+end
+
+unauthenticated do
+  root to: root_url, :as => "unauthenticated"
+end
+=end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
