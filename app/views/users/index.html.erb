@@ -3,6 +3,8 @@
  <% @post.each do |p| %>
 <h2> <%=p.title%>
 <%= link_to "show", post_path(p) %>
+<%= link_to "edit", edit_post_path(p) %><br>
+<%= link_to "delete", post_path(p) ,method: :delete, data: { confirm: "You sure?" } %>
 
 </h2>
 

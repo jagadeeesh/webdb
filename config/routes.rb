@@ -9,8 +9,7 @@ match '/signin' , to: 'sessions#new' , via: 'get'
 match '/signup', to: 'users#new',    via: 'get'
 match '/store', to: 'posts#new',    via: 'get'
 match '/key', to: 'posts#key',    via: 'get'
-match '/id', to: 'posts#id',    via: 'get'
-#get '/posts/key' => 'posts#key'
+match '/:id:key', to: 'posts#key', via: 'get', id: /[a-f0-9]+/, key: /.*/
 
 
 =begin
