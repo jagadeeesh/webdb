@@ -2,17 +2,18 @@
   <div class="navbar-inner">
     <div class="container">
       <nav>
-      <%= link_to "work in progress ...", '#' %>
         <ul class="nav pull-right">
-          <li><%= link_to "Home", root_url %></li>
-          <li><%= link_to "Help", '#' %></li>
+          <li><%= link_to "Home", users_path %></li>
+           
            <% if signed_in? %>
-            <li><%= link_to "User", users_path %></li>
+           <li> 
+                <%= link_to current_user.name, '#' %>
+              </li>
             <li>
                   <%= link_to "Sign out", signout_path, method: "delete" %>
                  </li>
-              
-          <% else %>
+             
+           <% else %>
             <li><%= link_to "Sign in", signin_path %></li>
           <% end %>
           

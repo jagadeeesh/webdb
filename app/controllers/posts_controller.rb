@@ -13,7 +13,6 @@ end
 def update
    @post = Post.find(params[:id])
     if @post.update_attributes(post_params)
-      # Handle a successful update.
        flash[:success] = "Post updated"
        redirect_to @post
     else
@@ -28,7 +27,6 @@ end
 
 def show
   @post = Post.find(params[:id])
-  #respond_with(@post)
 end
 
 def key
@@ -36,14 +34,23 @@ def key
   data = JSON.parse(post.content)
   if params[:key].present?
     keys = params[:key].split('.')
-    render json: data[params[:key]]
+    keys.shift
+    i=0 
+    while i<keys.length do
+      data=data[keys[i]]
+      i +=1
+    end
+    render json: data  
   else
     render json: data
   end
 end
 
+def url
+    
+    @post = Post.find(params[:id])
+end
 def create
-  #if post_params.content.isJSON()
   @post = current_user.posts.build(post_params)
   if @post.save
     flash[:success]="your data successfuly stored"
@@ -51,10 +58,6 @@ def create
   else
     render :new
   end
-  #else
-   # flash[:success]="not valid json data"
-    #redirect_to @post
-    #end
 end
 
 private
@@ -63,4 +66,3 @@ def post_params
 end
 end
 
-{world: {india: 'sachin'}}

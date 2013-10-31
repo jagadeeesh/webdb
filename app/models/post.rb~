@@ -1,6 +1,17 @@
 class Post < ActiveRecord::Base
-belongs_to :user
-validates :title, presence: true
-validates :content, presence: true #format{with: :json}
-#validates :content.isJSON(); 
+ belongs_to :user
+ validates :title, presence: true
+ #validate :is_json?
+ validates :content, json: true
+ def is_json?
+  if !(content.present? && content_valid?)
+  errors.add(:content, "content must be present and in json format")
+  end
+ end 
+ def content_valid?   
+  JSON.parse(content)  
+  return true  
+rescue JSON::ParserError  
+  return false  
+end  
 end

@@ -12,3 +12,6 @@
   <strong>key:</strong>
   <%= @post.key %>
 </p>
+ <%= link_to "URL", url_path(@post) %>|
+ <%= link_to "Edit", edit_post_path(@post) %>|
+ <%=link_to "Back", users_path %>

@@ -1,18 +1,23 @@
-<% provide(:title, ' user') %>
-<h2>Hello <%=@user.name%></h2>
+<h1>posts</h1>
+<div class="row">
+ <table class="table table-condensed">
+ 
  <% @post.each do |p| %>
-<h2> <%=p.title%>
-<%= link_to "show", post_path(p) %>
-<%= link_to "edit", edit_post_path(p) %><br>
-<%= link_to "delete", post_path(p) ,method: :delete, data: { confirm: "You sure?" } %>
-
-</h2>
-
+ <tr>
+ <td>
+<%=p.title%>
+</td>
+ <td>
+<%= link_to post_path(p), class: "btn btn-small btn-info" do %> 
+  Show
 <% end %>
-</br>
-<ul class="nav pull-middle">
-          <li><%= link_to "store new", store_path%></li>
-<ul/>          
-
-
-
+<%= link_to "edit", edit_post_path(p),class: "btn btn-small btn-warning" %>
+<%= link_to "delete", post_path(p),class: "btn btn-small btn-danger",method: :delete, data: { confirm: "You sure?" } %>
+</td>
+</tr>
+<% end %>
+</table>
+</div>
+<div class="row">
+<%= link_to "store new", store_path, class:"btn btn-success"%>
+</div>

@@ -28,7 +28,4 @@ module SessionsHelper
     end
     end
     
-    #def create_unique_id
-     # key = SecureRandom.hex(5)
-    #end
 end
