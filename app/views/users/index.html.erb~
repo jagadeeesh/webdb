@@ -7,13 +7,22 @@
  <td>
 <%=p.title%>
 </td>
+ <ul div class="pull-right">
  <td>
 <%= link_to post_path(p), class: "btn btn-small btn-info" do %> 
+  <i class="icon-white icon-eye-open"></i>
   Show
 <% end %>
-<%= link_to "edit", edit_post_path(p),class: "btn btn-small btn-warning" %>
-<%= link_to "delete", post_path(p),class: "btn btn-small btn-danger",method: :delete, data: { confirm: "You sure?" } %>
+<%= link_to edit_post_path(p), class: "btn btn-small btn-warning" do %> 
+  <i class="icon-white icon-edit"></i>
+  Edit
+<% end %>  
+<%= link_to post_path(p), class: "btn btn-small btn-danger",method: :delete, data: { confirm: "You sure?"} do %> 
+  <i class="icon-white icon-trash"></i>
+  Delete
+  <% end %>
 </td>
+</ul>
 </tr>
 <% end %>
 </table>
