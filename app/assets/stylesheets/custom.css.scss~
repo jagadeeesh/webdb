@@ -49,14 +49,14 @@ h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
-  text-align: left;
+  text-align: center;
 }
 
 h2 {
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
-  text-align:left;
+  text-align:center;
   font-weight: normal;
   color: #999;
 }
@@ -135,6 +135,13 @@ aside {
     }
   }
 }
+.table td {
+   text-align: center;   
+}
+.table th {
+   text-align: center;   
+}
+
 .users {
   list-style: none;
   margin: 0;
