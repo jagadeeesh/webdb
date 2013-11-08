@@ -16,7 +16,7 @@ def create
   @user=User.new(post_params)
   if @user.save
     flash[:success]="your successfuly signup"
-    redirect_to :back
+    redirect_to signin_path
   else
     render :new
   end
